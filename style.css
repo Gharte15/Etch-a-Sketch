@@ -1,3 +1,23 @@
+body {
+    background-color: blanchedalmond;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #grid-container {
     display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(16,8px);
+    grid-template-rows: repeat(16, 8px);
+}
+
+.square {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+}
+
+.header {
+    margin: 8px;
+    text-align: center;
+    justify-content: center;
 }
