@@ -1,10 +1,14 @@
 const gridContainer = document.querySelector('#grid-container');
 const btnEraser = document.querySelector('#eraseBtn');
+const btnBlack = document.querySelector('#blackBtn')
+const btnRainbow = document.querySelector('#rainbowBtn');
 const btnClear = document.querySelector('#clearBtn');
 const slider = document.getElementById('size-slider');
 const divShowDimensions = document.querySelector('#grid-dimensions-show');
 
 btnClear.addEventListener('click', clear);
+
+let color = "BLACK";
 
 let gridSize = slider.value;
 let mouseDown = false
@@ -23,14 +27,34 @@ function createGrid() {
     }
 }
 
-function changeColor(e, color) {
+function changeColor(e) {
     if (e.type === 'mouseover' && !mouseDown) return
-    e.target.style.backgroundColor = "BLACK";
+    if (color === "COLOR") {
+        const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+        const r = randomBetween(0, 255);
+        const g = randomBetween(0, 255);
+        const b = randomBetween(0, 255);
+        e.target.style.backgroundColor = `rgb(${r},${g},${b})`;
+    } else {
+        e.target.style.backgroundColor = `${color}`;
+    }
 } 
 
 function clear(e) {
     gridContainer.innerHTML = ''
     createGrid(gridSize)
+}
+
+btnBlack.onclick = function() {
+    color = "BLACK";
+}
+
+btnEraser.onclick = function () {
+    color = "WHITE";
+}
+
+btnRainbow.onclick = function () {
+    color = "COLOR"
 }
 
 window.onload = () => {

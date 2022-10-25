@@ -1,3 +1,18 @@
+#top {
+    background-color: #f08080;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 10%), 0 3px 1px 0 rgb(0 0 0 / 19%);
+}
+
+#title {
+    margin: 0;
+    color: white;
+    font-style: italic;
+    width: 100%;
+    padding: 14px;
+}
+
 .header {
     padding-top: 24px;
     margin: 8px;
@@ -6,15 +21,27 @@
 }
 
 body {
-    background-color: blanchedalmond;
+    margin: 0;
+    background-color: #ffdab9;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
     font-size: 24px;
-    background-color: #e7e7e7;
-    color: black;
+    color: white;
+    background-color: #f4978e;
     border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 4px 4px 0 rgb(0 0 0 / 10%), 0 3px 1px 0 rgb(0 0 0 / 19%);
+    border: none;
+}
+
+button:hover {
+    background-color: #f8ad9d;
+}
+
+button:active {
+    transform: translateY(4px);
 }
 
 #container {
