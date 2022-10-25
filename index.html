@@ -8,8 +8,16 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <h4 class="header">Draw anything...</h4>
-    <div id="grid-container">
+    <h6 class="header">Draw anything...</h6>
+    <div id="container">
+        <div id="grid-container"></div>
+        <div id="tools-container">
+            <button id="eraseBtn">Eraser</button>
+            <button id="clearBtn">Clear</button>
+        </div>
+        <div class="slider-container">
+            <input type="range" min="16" max="100" value="16" step="4" id="size-slider" class="slider">
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
