@@ -38,9 +38,8 @@ window.onload = () => {
 slider.oninput = function() {
     gridSize = slider.value;
     gridContainer.innerHTML = ''
-    gridContainer.style.gridTemplateColumns = "1fr 1fr 1fr 1fr";
-    gridContainer.style.gridTemplateRows = "1fr 1fr 1fr 1fr";
-
+    gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
     createGrid(slider.value);
 }
 
