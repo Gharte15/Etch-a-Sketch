@@ -1,17 +1,19 @@
 const gridContainer = document.querySelector('#grid-container');
 const btnEraser = document.querySelector('#eraseBtn');
 const btnClear = document.querySelector('#clearBtn');
-const slider = document.getElementById('size-slider')
+const slider = document.getElementById('size-slider');
+const divShowDimensions = document.querySelector('#grid-dimensions-show');
 
 btnClear.addEventListener('click', clear);
 
 let gridSize = slider.value;
-
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 
 function createGrid() {
+    divShowDimensions.textContent = `${gridSize} x ${gridSize}`;
+
     for (let i = 0; i < gridSize * gridSize; i++) {
         const square = document.createElement('div');
         square.classList.add("square");
@@ -21,7 +23,7 @@ function createGrid() {
     }
 }
 
-function changeColor(e) {
+function changeColor(e, color) {
     if (e.type === 'mouseover' && !mouseDown) return
     e.target.style.backgroundColor = "BLACK";
 } 
