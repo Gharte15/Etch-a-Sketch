@@ -1,15 +1,17 @@
 const gridContainer = document.querySelector('#grid-container');
 const btnEraser = document.querySelector('#eraseBtn');
 const btnClear = document.querySelector('#clearBtn');
-const sizeSlider = document.getElementById('size-slider')
+const slider = document.getElementById('size-slider')
 
-const DEFAULT_GRID_SIZE = 16;
+btnClear.addEventListener('click', clear);
+
+let gridSize = slider.value;
 
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 
-function createGrid(gridSize) {
+function createGrid() {
     for (let i = 0; i < gridSize * gridSize; i++) {
         const square = document.createElement('div');
         square.classList.add("square");
@@ -24,8 +26,21 @@ function changeColor(e) {
     e.target.style.backgroundColor = "BLACK";
 } 
 
-window.onload = () => {
-    createGrid(DEFAULT_GRID_SIZE);
+function clear(e) {
+    gridContainer.innerHTML = ''
+    createGrid(gridSize)
 }
 
+window.onload = () => {
+    createGrid(gridSize);
+}
+
+slider.oninput = function() {
+    gridSize = slider.value;
+    gridContainer.innerHTML = ''
+    gridContainer.style.gridTemplateColumns = "1fr 1fr 1fr 1fr";
+    gridContainer.style.gridTemplateRows = "1fr 1fr 1fr 1fr";
+
+    createGrid(slider.value);
+}
 

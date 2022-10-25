@@ -45,6 +45,7 @@ button {
 }
 
 .square {
+    position: relative;
     background-color: white;
 }
 
